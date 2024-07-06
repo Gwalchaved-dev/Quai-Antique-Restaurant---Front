@@ -1,7 +1,6 @@
-# Quai Antique
-Projet fil rouge formation Studi ! Création d'un site vitrine pour le restaurant Quai Antique.
+# Quai-Antique
+Site vitrine pour le restaurant Quai Antique (projet fil rouge Studi)
 
 # Installation
-Test du fichier
 
 # Déploiement

@@ -1,2 +1,42 @@
 @import url(/node_modules/bootstrap-icons/font/bootstrap-icons.min.css);
 @import 'custom';
+
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+main{
+    margin-bottom: 250px;
+}
+
+footer.footer{
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+p{
+    font-family: $font-family-serif;
+    font-size: 18px;
+}
+
+.hero-scene{
+    position: relative;
+    &::before{
+        content:"";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../Images/abendbrot-939435_1280.jpg);
+        background-size: cover;
+        filter: brightness(0.3);
+    }
+    *{
+        /*position devant le before*/
+        position: relative;
+    }
+}

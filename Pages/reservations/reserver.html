@@ -50,13 +50,33 @@
                 <option >20:45</option>
                 <option >21:00</option>
             </select>
-
-<!--MODAL annulation-->
-
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-primary">Réserver</button>
-            <button type="button" class="btn btn-danger">Annuler</button>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteResaModal">Annuler</button>
         </div>
     </form>
 </div>
+<!-- Modal annulation -->
+<div class="modal fade" id="DeleteResaModal" tabindex="-1" aria-labelledby="DeleteResaModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="DeleteResaModalLabel">Êtes vous sur de vouloir supprimer cette réservation ?</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                  <p>Réservation</p>
+                  <input type="text" class="form-control" id="NamePhotoInput" placeholder="infos réservation" name="Titre"> 
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-danger">Annuler réservation</button>
+                    <button type="button" class="btn btn-secondary">Annuler</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>

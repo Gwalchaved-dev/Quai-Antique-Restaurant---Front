@@ -1,17 +1,17 @@
-const emailInput= document.getElementById("emailInput");
-const passwordInput= document.getElementById("passwordInput");
+const inputEmail= document.getElementById("EmailInput");
+const inputPassword= document.getElementById("PasswordInput");
 const btnSignin= document.getElementById("btnSignin");
 
 btnSignin.addEventListener("click", checkCredentials);
 
 function checkCredentials(){
     //appeler l'api pour vérifier les credentials en BDD
-    if(emailInput.value == "test@mail.com" && passwordInput.value == "123"){
+    if(inputEmail.value == "test@mail.com" && inputPassword.value == "123"){
         alert("Vous êtes connecté");
-        windowlocation.replace("/");
+        window.location.replace("/");
     }
     else{
-        emailInput.classList.add("is-invalid");
-        passwordInput.classList.add("is-invalid");
+        inputEmail.classList.add("is-invalid");
+        inputPassword.classList.add("is-invalid");
     }
 }

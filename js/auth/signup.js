@@ -6,6 +6,7 @@ const inputEmail = document.getElementById("EmailInput");
 const inputPassword = document.getElementById("PasswordInput");
 const inputValidatePassword = document.getElementById("ValidatePasswordInput");
 const btnValidation = document.getElementById("btn-validation-inscription");
+const formInscription = document.getElementById("formulaireInscription");
 
 inputNom.addEventListener("keyup", valdidateForm);
 inputPrenom.addEventListener("keyup", valdidateForm);
@@ -90,15 +91,20 @@ function validateRequired(input){
     }
 }
 
+
+/*GESTION DU FORMULAIRE D'INSCRIPTION ET MISE EN RELATIONA AVEC L'API*/
 function inscrireUtilisateur(){
+
+    let dataForm = new FormData(formInscription);
+
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     let raw = JSON.stringify({
-        "firstName": "TestFetch",
-        "lastName": "test test fetch",
-        "email": "testquaiantique@email.com",
-        "password": "123"
+        "firstName": dataForm.get("Nom"),
+        "lastName": dataForm.get("Prenom"),
+        "email": dataForm.get("Email"),
+        "password": dataForm.get("Mdp")
     });
 
     let requestOptions = {
@@ -108,9 +114,19 @@ function inscrireUtilisateur(){
         redirect: "follow"
     };
 
-    fetch("https://127.0.0.1:8002/api/registration", requestOptions)
-    .then((response) => response.text())
-    .then((result) => console.log(result))
+    fetch(apiUrl+"registration", requestOptions)
+    .then(response => {
+        if (response.ok){
+            return response.json();
+        }
+    else{
+        alert("Erreur lors de l'inscription")
+    }
+    })
+    .then(result =>{
+        alert("Bravo " +dataForm.get("Prenom")+ " vous êtes bien inscrits, vous pouvez désormais vous connectez au Quai Antique")
+        document.location.href="/signin";
+    })
     .catch((error) => console.error(error));
 
 }

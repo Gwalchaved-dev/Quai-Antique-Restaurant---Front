@@ -12,6 +12,7 @@ inputPrenom.addEventListener("keyup", valdidateForm);
 inputEmail.addEventListener("keyup", valdidateForm);
 inputPassword.addEventListener("keyup", valdidateForm);
 inputValidatePassword.addEventListener("keyup", valdidateForm);
+btnValidation.addEventListener("click", inscrireUtilisateur);
 
 function valdidateForm(){
     const nomOk = validateRequired(inputNom);
@@ -89,4 +90,27 @@ function validateRequired(input){
     }
 }
 
+function inscrireUtilisateur(){
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
+    let raw = JSON.stringify({
+        "firstName": "TestFetch",
+        "lastName": "test test fetch",
+        "email": "testquaiantique@email.com",
+        "password": "123"
+    });
+
+    let requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+    };
+
+    fetch("https://127.0.0.1:8002/api/registration", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+
+}
